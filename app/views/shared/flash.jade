@@ -1,0 +1,21 @@
+- if(flash.error)
+  .alert.alert-danger.alert-dismissible(role='alert')
+    button.close(type="button", data-dismiss="alert")
+      span(aria-hidden="true") &times;
+      span.sr-only Close
+    strong Warning! &nbsp;
+    span= flash.error
+- if(flash.notice)
+  .alert.alert-info.alert-dismissible(role='alert')
+    button.close(type="button", data-dismiss="alert")
+      span(aria-hidden="true") &times;
+      span.sr-only Close
+    strong Notice! &nbsp;
+    span= flash.notice
+- if(flash.success)
+  .alert.alert-success.alert-dismissible(role='alert')
+    button.close(type="button", data-dismiss="alert")
+      span(aria-hidden="true") &times;
+      span.sr-only Close
+    strong Success! &nbsp;
+    span= flash.success

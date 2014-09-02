@@ -11,9 +11,9 @@ exports.login = function(req, res){
 };
 
 exports.logout = function(req, res){
-  req.session.destroy(function(){
-    res.redirect('/');
-  });
+//passport logs the user out using the .logout(); function
+  req.logout();
+  res.redirect('/');
 };
 
 exports.create = function(req, res){
@@ -26,7 +26,7 @@ exports.create = function(req, res){
   });
 };
 
-exports.authenticate = function(req, res){
+/*exports.localAuthenticate = function(req, res){
   User.authenticate(req.body, function(user){
     if(user){
       req.session.regenerate(function(){
@@ -39,5 +39,5 @@ exports.authenticate = function(req, res){
       res.redirect('/login');
     }
   });
-};
+};*/
 
