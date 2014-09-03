@@ -33,8 +33,14 @@ module.exports = function(app, express){
   app.get('/login', users.login);
   app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Welcome to Ama-zon!', failureFlash:'You Screwed up.. nice, Incorrect Login'}));
 
+  app.get('/auth/twitter', passport.authenticate('twitter'));
+  app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/', failureRedirect:'/login', successFlash: 'Successful Twitter Login', failureFlash: 'Sorry, your twitter login was incorrect'}));
+
   app.use(security.bounce);
   app.delete('/logout', users.logout);
+  app.get('/show', users.show);
+  app.get('/show/edit', users.edit);
+  app.put('/show', users.update);
 
   console.log('Express: Routes Loaded');
 };

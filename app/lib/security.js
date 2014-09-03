@@ -3,14 +3,11 @@
 
 exports.locals = function(req, res, next){
   res.locals.user = req.user;
+  res.locals.flash = {};
 //Alert in flash.jade
   var keys = Object.keys(req.session.flash || {});
-  res.locals.flash = {};
   keys.forEach(function(key){
-    res.locals.flash[key] = [];
-    req.session.flash[key].forEach(function(msg){
-      res.locals.flash[key].push(req.flash(key));
-    });
+    res.locals.flash[key] = req.flash(key);
   });
   next();
 };
@@ -26,6 +23,8 @@ exports.bounce = function(req, res, next){
   if(res.locals.user){
     next();
   }else{
+//flash message
+    req.flash('error','Warning: This Page Is Protected, Please LOGIN!');
     res.redirect('/login');
   }
 };

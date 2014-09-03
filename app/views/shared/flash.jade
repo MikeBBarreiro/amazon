@@ -1,18 +1,18 @@
-- if(flash.error)
+each error in flash.error || []
   .alert.alert-danger.alert-dismissible(role='alert')
     button.close(type="button", data-dismiss="alert")
       span(aria-hidden="true") &times;
       span.sr-only Close
     strong Warning! &nbsp;
     span= flash.error
-- if(flash.notice)
+each notice in flash.notice || []
   .alert.alert-info.alert-dismissible(role='alert')
     button.close(type="button", data-dismiss="alert")
       span(aria-hidden="true") &times;
       span.sr-only Close
     strong Notice! &nbsp;
     span= flash.notice
-- if(flash.success)
+each success in flash.success || []
   .alert.alert-success.alert-dismissible(role='alert')
     button.close(type="button", data-dismiss="alert")
       span(aria-hidden="true") &times;
