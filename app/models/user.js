@@ -54,5 +54,16 @@ User.twitterAuthenticate = function(token, secret, twitter, cb){
   });
 };
 
+User.githubAuthenticate = function(token, secret, github, cb){
+  console.log(github);
+  User.collection.findOne({githubId:github.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {githubId:github.id, username:github.username, displayName: github.displayName, type: 'github'};
+    User.collection.save(user, cb);
+  });
+};
+
+
+
 module.exports = User;
 
