@@ -15,4 +15,17 @@ config.github = {
 
 };
 
+config.google = {
+  clientId    : '310539583086-jsic3q60bub7qrmlm73666d81agkrd21.apps.googleusercontent.com',
+  clientSecret: process.env.GOOGLE_SECRET,
+  callbackUrl : 'http://mikeb-vm.com:3333/auth/google/callback'
+};
+
+config.facebook = {
+  clientId       : '642714769179504',
+  clientSecret   : process.env.FACEBOOK_SECRET,
+  callbackUrl : 'http://mikeb-vm.com:3333/auth/facebook/callback'
+};
+
+
 module.exports = config;

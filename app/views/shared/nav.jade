@@ -16,10 +16,12 @@
             form.navbar-form(method='post', action='/logout')
               .form-group
                 input(type='hidden', name='_method', value='delete')
-                button.btn.btn-danger.fa.fa-sign-out= user.email || user.username
+                button.btn.btn-danger.fa.fa-sign-out= user.email || user.username || user.displayname
         else
           li: a(href='/register'): i.fa.fa-users &nbsp; Join Us
           li: a(href='/login'): i.fa.fa-child &nbsp; Login
           li: a(href='/auth/twitter'): i.fa.fa-twitter &nbsp; Twitter
           li: a(href='/auth/github'): i.fa.fa-github-alt &nbsp; Github
+          li: a(href='/auth/google'): i.fa.fa-google-plus-square &nbsp; Google
+          li: a(href='/auth/facebook'): i.fa.fa-facebook-square &nbsp; Facebook
 

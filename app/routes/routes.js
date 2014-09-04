@@ -33,11 +33,17 @@ module.exports = function(app, express){
   app.get('/login', users.login);
   app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Welcome to Ama-zon!', failureFlash:'You Screwed up.. nice, Incorrect Login'}));
 //TWITTER
-  app.get('/auth/twitter', passport.authenticate('twitter'));
+  app.get('/auth/twitter',          passport.authenticate('twitter'));
   app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/', failureRedirect:'/login', successFlash: 'Successful Twitter Login', failureFlash: 'Sorry, your twitter login was incorrect'}));
 //GITHUB
-  app.get('/auth/github', passport.authenticate('github'));
-  app.get('/auth/github/callback', passport.authenticate('github', {successRedirect:'/', failureRedirect:'/login', successFlash: 'Successful Github Login', failureFlash: 'Sorry, your Github login was incorrect'}));
+  app.get('/auth/github',           passport.authenticate('github'));
+  app.get('/auth/github/callback',  passport.authenticate('github', {successRedirect:'/', failureRedirect:'/login', successFlash: 'Successful Github Login', failureFlash: 'Sorry, your Github login was incorrect'}));
+//GOOGLE
+  app.get('/auth/google',           passport.authenticate('google',  {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
+  app.get('/auth/google/callback',  passport.authenticate('google',  {successRedirect:'/', failureRedirect:'/login', failureFlash:'Sorry, your Google login was incorrect.', successFlash:'Successful Google Login.'}));
+//FACEBOOK
+  app.get('/auth/facebook', passport.authenticate('facebook'));
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {successRedirect:'/', failureRedirect:'/login', successFlash:'You are logged with Facebook', failureFlash:'Sorr, your Facebook login was incorrect'}));
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);

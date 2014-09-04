@@ -63,7 +63,23 @@ User.githubAuthenticate = function(token, secret, github, cb){
   });
 };
 
+User.googleAuthenticate = function(token, secret, google, cb){
+  console.log(google);
+  User.collection.findOne({googleId:google.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {googleId:google.id, username:google.username, displayName: google.displayName, type: 'google'};
+    User.collection.save(user, cb);
+  });
+};
 
+User.facebookAuthenticate = function(token, secret, facebook, cb){
+  console.log(facebook);
+  User.collection.findOne({facebookId:facebook.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {facebookId:facebook.id, username:facebook.username, displayName: facebook.displayName, type: 'facebook'};
+    User.collection.save(user, cb);
+  });
+};
 
 module.exports = User;
 
