@@ -1,1 +1,1 @@
-body{background-image:url('/img/gradient_squares.png')}
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);body{background-image:url('/img/gradient_squares.png')}.navbar{border-radius:0px}.photo{height:100px;width:150px;border:1px solid black}th{text-align:center;font-family:'Julius Sans One',sans-serif}td{text-align:center;font-family:'Julius Sans One',sans-serif}tfoot{background-color:#345ED3}table{border-radius:25px}.clearCart{margin:5px}

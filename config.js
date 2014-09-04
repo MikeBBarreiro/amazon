@@ -24,7 +24,7 @@ config.google = {
 config.facebook = {
   clientId       : '642714769179504',
   clientSecret   : process.env.FACEBOOK_SECRET,
-  callbackUrl : 'http://mikeb-vm.com:3333/auth/facebook/callback'
+  callbackUrl    : 'http://mikeb-vm.com:3333/auth/facebook/callback'
 };
 
 

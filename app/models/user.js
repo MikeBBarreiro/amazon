@@ -11,6 +11,7 @@ Object.defineProperty(User, 'collection', {
   get: function(){return global.mongodb.collection('users');}
 });
 
+
 User.findById = function(id, cb){
   var _id = Mongo.ObjectID(id);
   User.collection.findOne({_id:_id}, function(err, obj){
@@ -18,6 +19,10 @@ User.findById = function(id, cb){
     user = _.extend(user, obj);
     cb(err, user);
   });
+};
+
+User.all = function(cb){
+  User.collection.find().toArray(cb);
 };
 
 User.register = function(o, cb){

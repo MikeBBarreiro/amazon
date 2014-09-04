@@ -11,12 +11,14 @@
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right
         if user
+          li: a(href='/products'): i.fa.fa-money &nbsp; Products
+          li: a(href='/cart'): i.fa.fa-shopping-cart
           li: a(href='/show'): i.fa.fa-barcode &nbsp; Profile
           li
             form.navbar-form(method='post', action='/logout')
               .form-group
                 input(type='hidden', name='_method', value='delete')
-                button.btn.btn-danger.fa.fa-sign-out= user.email || user.username || user.displayname
+                button.btn.btn-danger.fa.fa-sign-out= user.email || user.username || user.login
         else
           li: a(href='/register'): i.fa.fa-users &nbsp; Join Us
           li: a(href='/login'): i.fa.fa-child &nbsp; Login

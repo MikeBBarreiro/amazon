@@ -42,6 +42,12 @@ exports.update = function(req, res){
   });
 };
 
+exports.product = function(req, res){
+  User.all(function(err, products){
+    res.render('/products', {products:products});
+  });
+};
+
 /*exports.localAuthenticate = function(req, res){
   User.authenticate(req.body, function(user){
     if(user){

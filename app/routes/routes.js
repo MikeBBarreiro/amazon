@@ -12,6 +12,8 @@ var morgan         = require('morgan'),
     security       = require('../lib/security'),
     debug          = require('../lib/debug'),
     home           = require('../controllers/home'),
+    products       = require('../controllers/products'),
+    cart           = require('../controllers/cart'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -43,13 +45,17 @@ module.exports = function(app, express){
   app.get('/auth/google/callback',  passport.authenticate('google',  {successRedirect:'/', failureRedirect:'/login', failureFlash:'Sorry, your Google login was incorrect.', successFlash:'Successful Google Login.'}));
 //FACEBOOK
   app.get('/auth/facebook', passport.authenticate('facebook'));
-  app.get('/auth/facebook/callback', passport.authenticate('facebook', {successRedirect:'/', failureRedirect:'/login', successFlash:'You are logged with Facebook', failureFlash:'Sorr, your Facebook login was incorrect'}));
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {successRedirect:'/', failureRedirect:'/login', successFlash:'You are logged in with Facebook', failureFlash:'Sorr, your Facebook login was incorrect'}));
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
   app.get('/show', users.show);
   app.get('/show/edit', users.edit);
   app.put('/show', users.update);
+  app.get('/products', products.index);
+  app.post('/cart', cart.add);
+  app.get('/cart', cart.index);
+  app.delete('/cart', cart.destroy);
 
   console.log('Express: Routes Loaded');
 };
