@@ -1,0 +1,40 @@
+extends ../shared/template
+block content
+  h1 Products In Cart
+
+  form(method='post', action='/cart')
+    input(type='hidden', name='_method', value='delete')
+    button.clearCart.btn.btn-danger.buzz-out(type='submit') Clear Cart
+
+  form.pay(action='/charge', method='post')
+      script.stripe-button(src='https://checkout.stripe.com/checkout.js', data-key=key, data-image='/img/awesome.png', data-name='Ama-Zon', data-description='2 widgets ($20.00)', data-amount=Math.round((total * 100)))
+
+  table#products.table.table-stripped.table-hover
+    thead
+      tr
+        th Product
+        th Image
+        th Price
+        th Quantity
+        th SubTotal
+    tbody
+      each id in ids
+        tr
+          td= products[id].p.name
+          td.photo(style='background-image:url("#{products[id].p.photo}"); background-size: cover;')
+          td $#{products[id].p.price.toFixed(2)}
+          td= products[id].c
+          td= '$' + subtotal.toFixed(2)
+      tr
+        td
+        td
+        td
+        td Tax
+        td= '$' + tax.toFixed(2)
+    tfoot
+      tr
+        td
+        td
+        td
+        td Total
+        td= '$' + total.toFixed(2)

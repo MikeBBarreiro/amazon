@@ -27,5 +27,9 @@ config.facebook = {
   callbackUrl    : 'http://mikeb-vm.com:3333/auth/facebook/callback'
 };
 
+config.stripe = {
+  publishKey : 'pk_test_3TbqYtHkLTSdmkNSlyBWW6D0',
+  secretKey  : process.env.STRIPE_SECRET
+};
 
 module.exports = config;

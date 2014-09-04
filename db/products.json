@@ -1,0 +1,33 @@
+{
+  "_id":{"$oid":"000000000000000000000001"},
+  "name":"Mac Book Pro",
+  "photo":"http://core4.staticworld.net/images/article/2013/12/1260542_1160-100155332-medium.jpg",
+  "price":1500
+}
+{
+  "_id":{"$oid":"000000000000000000000002"},
+  "name":"Nissan GTR 2012",
+  "photo":"http://www.mrwallpaper.com/wallpapers/nissan-gtr-r35-1.jpg",
+  "price":100000
+}
+
+{
+  "_id":{"$oid":"000000000000000000000003"},
+  "name":"Mountain",
+  "photo":"http://yogatoendaddiction.files.wordpress.com/2014/04/mountain.jpg",
+  "price":4
+}
+
+{
+  "_id":{"$oid":"000000000000000000000004"},
+  "name":"Addidas",
+  "photo":"http://theoriginalwinger.com/wp-content/uploads/2012/12/adidas-Seeley.jpg",
+  "price":35
+}
+
+{
+  "_id":{"$oid":"000000000000000000000005"},
+  "name":"Super awesome chair",
+  "photo":"http://www.killsometime.com/content/pictures/files/2984.jpg",
+  "price":700
+}
